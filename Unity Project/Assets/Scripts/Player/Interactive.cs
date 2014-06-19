@@ -22,7 +22,7 @@ public class Interactive : MonoBehaviour , IConditional
     //Gets called when the player looks at an object with a collider who has their layer set to "Object Interaction" ie 8th Layer
     public virtual void onPlayerFocusEnter(PlayerControl aPlayer)
     {
-        Debug.Log("Focus Enter");
+        
     }
     //Gets called for every frame the player looks at an object with a collider who has their layer set to "Object Interaction" ie 8th Layer
     public virtual void onPlayerFocus(PlayerControl aPlayer)
@@ -32,7 +32,7 @@ public class Interactive : MonoBehaviour , IConditional
     //Gets called when the player stops looking at the object with a collider who has their layer set to "Object Interaction" ie 8th Layer
     public virtual void onPlayerFocusExit(PlayerControl aPlayer)
     {
-        Debug.Log("Focus Exit");
+        
     }
     //Gets called when the player starts using this object.
     public virtual void onUse(PlayerControl aPlayer)

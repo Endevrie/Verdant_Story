@@ -103,11 +103,6 @@ public class PlayerControl : MonoBehaviour
                 }
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            
-        }
     }
 
     /// <summary>
@@ -203,7 +198,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (m_OrbitCamera != null)
         {
-            m_OrbitCamera.enabled = false;
+            m_OrbitCamera.gameObject.SetActive(false);
         }
     }
     /// <summary>
@@ -213,7 +208,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (m_OrbitCamera != null)
         {
-            m_OrbitCamera.enabled = true;
+            m_OrbitCamera.gameObject.SetActive(true);
         }
     }
     /// <summary>
@@ -239,7 +234,7 @@ public class PlayerControl : MonoBehaviour
 
     //Disables the player Camera and unit motor
     //Invokes an the interactive object's onUseEnd
-    private void use(Interactive aInteractiveObject)
+    public void use(Interactive aInteractiveObject)
     {
         if (aInteractiveObject == null)
         {
@@ -249,12 +244,12 @@ public class PlayerControl : MonoBehaviour
         {
             m_ObjectInUse.onUseEnd(this);
         }
-        m_ObjectInUse = aInteractiveObject;
-        m_ObjectInUse.onUse(this);
         disableCamera();
         disableUnitMotor();
+        m_ObjectInUse = aInteractiveObject;
+        m_ObjectInUse.onUse(this);
     }
-    private void stopUsing()
+    public void stopUsing()
     {
         if (m_ObjectInUse != null)
         {

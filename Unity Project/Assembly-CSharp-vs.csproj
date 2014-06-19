@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\GUI\PasswordField.cs" />
      <Compile Include="Assets\Scripts\GUI\TextField.cs" />
      <Compile Include="Assets\Scripts\Plants\BasePlant.cs" />
+     <Compile Include="Assets\Scripts\Plants\Sunflower.cs" />
      <Compile Include="Assets\Scripts\Player\IConditional.cs" />
      <Compile Include="Assets\Scripts\Player\Interactive.cs" />
      <Compile Include="Assets\Scripts\Player\OrbitCamera.cs" />
@@ -73,6 +74,7 @@
      <Compile Include="Assets\Scripts\Scenes\ProfileSelect.cs" />
      <Compile Include="Assets\Scripts\Scenes\SplashScene.cs" />
      <Compile Include="Assets\Scripts\Utilties\Game.cs" />
+     <Compile Include="Assets\Scripts\Utilties\MaterialSwitch.cs" />
      <Compile Include="Assets\Scripts\Utilties\Value.cs" />
      <Compile Include="Assets\Scripts\Utilties\Wait.cs" />
      <None Include="Assets\Shaders\Glow.shader" />
