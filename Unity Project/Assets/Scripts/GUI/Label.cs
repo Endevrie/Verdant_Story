@@ -4,23 +4,24 @@ using System;
 
 namespace OnLooker
 {
-    [Serializable]
+    //Much like the button a label can use a text or a texture to display itself
     public class Label : Control
     {
         private string m_Text = string.Empty;
         private Texture2D m_Texture = null;
         private bool m_UsingTexture = false;
 
-        public Label(ControlCallback aCallback) : base(aCallback)
+        public Label(ControlCallback aCallback)
+            : base(aCallback)
         {
 
-            
+
         }
 
         public Label(ControlCallback aCallback, string aName, int aID)
             : base(aCallback, aName, aID)
         {
-            
+
         }
         public Label(string aText, ControlCallback aCallback, string aName, int aID)
             : base(aCallback, aName, aID)
@@ -62,19 +63,16 @@ namespace OnLooker
             get { return m_UsingTexture; }
             set { m_UsingTexture = value; }
         }
-
-
         public override void update()
         {
             if (m_UsingTexture == true && m_Texture != null)
             {
-                GUILayout.Label(m_Texture,style);
+                GUILayout.Label(m_Texture, style);
             }
             else
             {
-                GUILayout.Label(m_Text,style);
+                GUILayout.Label(m_Text, style);
             }
-
         }
     }
 }

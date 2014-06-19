@@ -1,53 +1,67 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using System.Collections;
 
-public class Interactive : MonoBehaviour {
-
-    //float distance = Vector3.Distance(target.transform.position,transform.position);
-    //Vector3 dir = (target.transform.position - transform.position).normalized;
-    //float direction = Vector3.Dot(dir, transform.forward);
-
-    public Transform m_Camera = null;
-
-	// Use this for initialization
-	void Start () 
-    {
-
-	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
-	    
-	}
-    void FixedUpdate()
-    {
-        if (m_Camera == null)
-        {
-            return;
-        }
-
-        //The layer mask is for objects this raycast is to check for only.
-        int m_LayerMask = 1 << 8;
-        RaycastHit hit;
-        //Raycast from the cameras current position forwards to see if the interactive object gets hit.
-        if (Physics.Raycast(m_Camera.position, m_Camera.forward, out hit,500.0f,m_LayerMask))
-        {
-            Transform hitForm = hit.transform;
-            Vector3 hitPoint = hit.point;
-            if (hitForm != null)
-            {
-                Debug.DrawLine(m_Camera.position, hitForm.position, Color.blue, 1.0f);
-            }
-            
-            Debug.DrawLine(m_Camera.position, hitPoint,Color.green,0.1f);
-        }
-
-        
-    }
-
-    void DrawGizmos()
+public class Interactive : MonoBehaviour , IConditional
+{
+    //Gets called when the player enters the plant trigger area
+    public virtual void onPlayerEnter(PlayerControl aPlayer)
     {
 
     }
+    //Gets called when the player stays within the plant trigger area
+    public virtual void onPlayerStay(PlayerControl aPlayer)
+    {
+
+    }
+    //Gets called when the player leaves the plant trigger area
+    public virtual void onPlayerExit(PlayerControl aPlayer)
+    {
+
+    }
+    //Gets called when the player looks at an object with a collider who has their layer set to "Object Interaction" ie 8th Layer
+    public virtual void onPlayerFocusEnter(PlayerControl aPlayer)
+    {
+        Debug.Log("Focus Enter");
+    }
+    //Gets called for every frame the player looks at an object with a collider who has their layer set to "Object Interaction" ie 8th Layer
+    public virtual void onPlayerFocus(PlayerControl aPlayer)
+    {
+
+    }
+    //Gets called when the player stops looking at the object with a collider who has their layer set to "Object Interaction" ie 8th Layer
+    public virtual void onPlayerFocusExit(PlayerControl aPlayer)
+    {
+        Debug.Log("Focus Exit");
+    }
+    //Gets called when the player starts using this object.
+    public virtual void onUse(PlayerControl aPlayer)
+    {
+
+    }
+    //Gets called when the player stops using this object
+    public virtual void onUseEnd(PlayerControl aPlayer)
+    {
+
+    }
+    //The condition to check before the player may use this object.
+    public virtual bool condition(Transform aPlayer, Transform aPlant)
+    {
+        //This is an example condition which checks if the player is facing the plant
+        //And is within the minimum distance from the target
+        float minDistance = 3.0f;
+
+        //facing > 0 = facing forward
+        //facing < 0 = facing backward
+        float distance = Vector3.Distance(aPlant.position, aPlayer.position);
+        Vector3 direction = (aPlant.position - aPlayer.position).normalized;
+        float facing = Vector3.Dot(direction, aPlayer.forward);
+
+        if(distance <= minDistance && facing > 0.0f)
+        {
+            return true;
+        }
+        return false;
+    }
+
 }

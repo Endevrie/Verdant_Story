@@ -3,14 +3,16 @@ using System.Collections;
 
 namespace OnLooker
 {
-
+    //Button implementation can use text or a texture when displayed 
+    //however only one can be used at a time.
     public class Button : Control
     {
         private string m_Text = string.Empty;
         private Texture2D m_Texture = null;
         private bool m_UsingTexture = false;
 
-        public Button(ControlCallback aCallback) : base(aCallback)
+        public Button(ControlCallback aCallback)
+            : base(aCallback)
         {
 
         }
@@ -32,6 +34,7 @@ namespace OnLooker
             m_Texture = aTexture;
             m_UsingTexture = false;
         }
+        //Properties
         override public EControl type
         {
             get { return EControl.BUTTON; }
@@ -52,21 +55,22 @@ namespace OnLooker
             set { m_UsingTexture = value; }
         }
 
-
+        //Update implementation
         public override void update()
         {
+            //If the button was clicked we invoke the callback method to notify it
             if (m_UsingTexture == true && m_Texture != null)
             {
                 if (GUILayout.Button(m_Texture))
                 {
-                    valueChanged(this, new ControlArgs(new Value("Click")));
+                    valueChanged.Invoke(this, new ControlArgs(new Value("Click")));
                 }
             }
             else
             {
                 if (GUILayout.Button(m_Text))
                 {
-                    valueChanged(this, new ControlArgs(new Value("Click")));
+                    valueChanged.Invoke(this, new ControlArgs(new Value("Click")));
                 }
             }
 

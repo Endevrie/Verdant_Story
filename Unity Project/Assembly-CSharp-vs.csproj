@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\GUI\PasswordField.cs" />
      <Compile Include="Assets\Scripts\GUI\TextField.cs" />
      <Compile Include="Assets\Scripts\Plants\BasePlant.cs" />
+     <Compile Include="Assets\Scripts\Player\IConditional.cs" />
      <Compile Include="Assets\Scripts\Player\Interactive.cs" />
      <Compile Include="Assets\Scripts\Player\OrbitCamera.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerControl.cs" />

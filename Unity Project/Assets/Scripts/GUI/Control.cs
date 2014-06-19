@@ -3,17 +3,19 @@ using System.Collections;
 
 namespace OnLooker
 {
+    //EControl describes the control types
     public enum EControl
     {
-        CONTROL,
-        BUTTON,
-        TOGGLE,
-        LABEL,
-        TEXT_FIELD,
-        PASSWORD_FIELD,
-        SLIDER
+        CONTROL,        //Implemented - Base of all Controls
+        BUTTON,         //Implemented
+        TOGGLE,         //Not Implemented
+        LABEL,          //Implemented
+        TEXT_FIELD,     //Implemented
+        PASSWORD_FIELD, //Not Implemented
+        SLIDER          //Not Implemented
     }
 
+    //This class holds arguments to send over through control callbacks.
     public class ControlArgs
     {
         private Value m_Value;
@@ -24,12 +26,17 @@ namespace OnLooker
 
         public Value value
         {
-            get{return m_Value;}
+            get { return m_Value; }
         }
     }
 
+    //The delegate for a control callback
     public delegate void ControlCallback(Control aSender, ControlArgs aArgs);
 
+    //The base class for all controls to come
+    //Each control will be given a unique name
+    //You can use this name for lookups
+    //
     public abstract class Control
     {
         private ControlCallback m_ValueChanged;
@@ -55,15 +62,15 @@ namespace OnLooker
             m_Style.normal.textColor = Color.white;
         }
 
-        //Draws the gui and sends an event based on actoin
+        //Draws the gui and sends an event based on action
         public abstract void update();
 
+        //Properties
         public ControlCallback valueChanged
         {
             get { return m_ValueChanged; }
             protected set { m_ValueChanged = valueChanged; }
         }
-
         virtual public EControl type
         {
             get { return EControl.CONTROL; }
@@ -93,7 +100,7 @@ namespace OnLooker
             get { return m_Style.font; }
             set { m_Style.font = value; }
         }
-        
-        
+
+
     }
 }

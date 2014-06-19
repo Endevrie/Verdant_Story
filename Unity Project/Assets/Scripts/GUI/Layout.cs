@@ -9,6 +9,7 @@ namespace OnLooker
     public delegate void TextFieldCallback(TextField aSender, string aText);
 
     //Defines an area and has a list of controls
+    //Has a event for each control that requires one.
     [Serializable]
     public class Layout
     {
@@ -31,6 +32,7 @@ namespace OnLooker
             get { return m_Name; }
         }
 
+        //Callback Registration functions
         public void registerButtonCallback(ButtonCallback aCallback)
         {
             if (aCallback != null)
@@ -60,13 +62,14 @@ namespace OnLooker
             }
         }
 
-
+        //
         private int getNextControlID()
         {
             m_ControlID++;
             return m_ControlID - 1;
         }
 
+        //All layouts are to have a unique name
         public Layout(string aName)
         {
             m_Name = aName;
@@ -85,6 +88,7 @@ namespace OnLooker
             }
         }
 
+        //Update all the controls in the given area.
         public void update()
         {
             if (m_Controls == null)
@@ -92,8 +96,6 @@ namespace OnLooker
                 return;
             }
             GUI.Box(m_Bounds, string.Empty);
-
-
             GUILayout.BeginArea(m_Bounds);
 
             for (int i = 0; i < m_Controls.Count; i++)
@@ -105,7 +107,8 @@ namespace OnLooker
         }
 
 
-
+        //Control Functions
+        //No control with the same name can be added to the current list of controls
         public Button addButton(string aText, string aControlName)
         {
             if (controlExist(aControlName) == true)
@@ -204,28 +207,36 @@ namespace OnLooker
             }
             return aControl;
         }
+        public bool removeControl(string aControlName)
+        {
+            Control control = getControl(aControlName);
+            m_Controls.Remove(control);
+            if (control != null)
+            {
+                //Removed Successfully
+                return true;
+            }
+            //Unsuccessful removal
+            return false;
+        }
 
         private void valueChanged(Control aSender, ControlArgs aArgs)
         {
             switch (aSender.type)
             {
-                    //Click
+                //Click
                 case EControl.BUTTON:
                     handleButton((Button)aSender);
                     break;
                 case EControl.TEXT_FIELD:
                     string text = aArgs.value.asString();
                     handleTextField((TextField)aSender, text);
+                    if (aArgs.value.getError() != ParseError.NO_ERROR)
+                    {
+                        Debug.Log("Error in Parsing");
+                    }
                     break;
-
-                    
             }
-            if (aSender.type == EControl.BUTTON)
-            {
-                
-            }
-
-            
         }
         private void handleButton(Button aSender)
         {
@@ -233,6 +244,7 @@ namespace OnLooker
             {
                 return;
             }
+            //Invoke Button Callback
             e_ButtonCallback.Invoke(aSender);
 
         }
@@ -242,10 +254,13 @@ namespace OnLooker
             {
                 return;
             }
+            //Invoke Textfield Callback
             e_TextFieldCallback.Invoke(aSender, aText);
 
         }
 
+        //Checks to make sure a control exists
+        //Returns true if the control exists or if the string was empty;
         private bool controlExist(string aName)
         {
             if (aName == string.Empty)
@@ -261,7 +276,24 @@ namespace OnLooker
             }
             return false;
         }
+        //Searchs for a control and returns it if found, null if not
+        private Control getControl(string aName)
+        {
+            if (aName == string.Empty)
+            {
+                return null;
+            }
+            for (int i = 0; i < m_Controls.Count; i++)
+            {
+                if (m_Controls[i].name == aName)
+                {
+                    return m_Controls[i];
+                }
+            }
+            return null;
+        }
     }
 
 }
+
 
