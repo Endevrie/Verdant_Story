@@ -33,6 +33,15 @@ public class Game : MonoBehaviour
         return Mathf.Clamp(angle, min, max);
     }
 
+    public static bool pointInRect(Vector2 aPoint, Rect aRect)
+    {
+        if (aPoint.x < aRect.x || aPoint.y < aRect.y || aPoint.x > aRect.x + aRect.width || aRect.y > aRect.y + aRect.height)
+        {
+            return false;
+        }
+        return true;
+    }
+
     private void Start()
     {
         //TODO: All Game Startup stuff here

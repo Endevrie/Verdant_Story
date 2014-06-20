@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\FileIO\FileData.cs" />
      <Compile Include="Assets\Scripts\FileIO\FileHeader.cs" />
      <Compile Include="Assets\Scripts\FileIO\SaveData.cs" />
+     <Compile Include="Assets\Scripts\GUI\Buffered\UIEvent2D.cs" />
      <Compile Include="Assets\Scripts\GUI\Button.cs" />
      <Compile Include="Assets\Scripts\GUI\Components\GUIManager.cs" />
      <Compile Include="Assets\Scripts\GUI\Control.cs" />
@@ -61,6 +62,7 @@
      <Compile Include="Assets\Scripts\GUI\PasswordField.cs" />
      <Compile Include="Assets\Scripts\GUI\TextField.cs" />
      <Compile Include="Assets\Scripts\Plants\BasePlant.cs" />
+     <Compile Include="Assets\Scripts\Plants\Mushroom.cs" />
      <Compile Include="Assets\Scripts\Plants\Sunflower.cs" />
      <Compile Include="Assets\Scripts\Player\IConditional.cs" />
      <Compile Include="Assets\Scripts\Player\Interactive.cs" />
@@ -73,8 +75,10 @@
      <Compile Include="Assets\Scripts\Scenes\Options_MainMenu.cs" />
      <Compile Include="Assets\Scripts\Scenes\ProfileSelect.cs" />
      <Compile Include="Assets\Scripts\Scenes\SplashScene.cs" />
+     <Compile Include="Assets\Scripts\Utilties\CollisionHandler.cs" />
      <Compile Include="Assets\Scripts\Utilties\Game.cs" />
      <Compile Include="Assets\Scripts\Utilties\MaterialSwitch.cs" />
+     <Compile Include="Assets\Scripts\Utilties\TriggerHandler.cs" />
      <Compile Include="Assets\Scripts\Utilties\Value.cs" />
      <Compile Include="Assets\Scripts\Utilties\Wait.cs" />
      <None Include="Assets\Shaders\Glow.shader" />

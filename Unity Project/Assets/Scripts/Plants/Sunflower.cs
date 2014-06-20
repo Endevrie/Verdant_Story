@@ -86,8 +86,6 @@ public class Sunflower : Interactive
 
             transform.Rotate(0.0f, x, 0.0f);
             m_DummyHead.Rotate(y, 0.0f, 0.0f);
-            
-
         }
 	}
 

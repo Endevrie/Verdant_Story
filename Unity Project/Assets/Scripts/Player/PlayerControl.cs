@@ -67,6 +67,11 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter(Collision aCollision)
+    {
+        //Debug.Log("Player Normal" + aCollision.contacts[0].normal.ToString());
+    }
+
     // Update is called once per frame
     void Update()
     {
