@@ -52,7 +52,8 @@
      <Compile Include="Assets\Scripts\FileIO\FileData.cs" />
      <Compile Include="Assets\Scripts\FileIO\FileHeader.cs" />
      <Compile Include="Assets\Scripts\FileIO\SaveData.cs" />
-     <Compile Include="Assets\Scripts\GUI\Buffered\UIEvent2D.cs" />
+     <Compile Include="Assets\Scripts\GUI\Buffered\UIHandler.cs" />
+     <Compile Include="Assets\Scripts\GUI\Buffered\UIToggle2.cs" />
      <Compile Include="Assets\Scripts\GUI\Button.cs" />
      <Compile Include="Assets\Scripts\GUI\Components\GUIManager.cs" />
      <Compile Include="Assets\Scripts\GUI\Control.cs" />
@@ -75,6 +76,7 @@
      <Compile Include="Assets\Scripts\Scenes\Options_MainMenu.cs" />
      <Compile Include="Assets\Scripts\Scenes\ProfileSelect.cs" />
      <Compile Include="Assets\Scripts\Scenes\SplashScene.cs" />
+     <Compile Include="Assets\Scripts\Utilties\AnimationTest.cs" />
      <Compile Include="Assets\Scripts\Utilties\CollisionHandler.cs" />
      <Compile Include="Assets\Scripts\Utilties\Game.cs" />
      <Compile Include="Assets\Scripts\Utilties\MaterialSwitch.cs" />

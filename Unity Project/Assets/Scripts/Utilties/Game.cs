@@ -42,6 +42,11 @@ public class Game : MonoBehaviour
         return true;
     }
 
+    public static Rect scaleRect(Rect aRect, float aScale)
+    {
+        return new Rect(aRect.x, aRect.y, aScale * aRect.width, aRect.height * aScale);
+    }
+
     private void Start()
     {
         //TODO: All Game Startup stuff here
