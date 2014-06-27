@@ -1,0 +1,20 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Utilties\ObjectSnap.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Utilties\MaterialSwitch.cs" Line="1" Column="1" />
+      <File FileName="Assets\Editor\GUI\UIToggle2Editor.cs" Line="1" Column="1" />
+      <File FileName="Assets\Editor\PlayerControlEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\PlayerControl.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\OrbitCamera.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GUI\Buffered\UIToggle2.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Utilties\CollisionHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Utilties\ObjectSnap.cs" Line="158" Column="33" />
+      <File FileName="Assets\Editor\GUI\ObjectSnapEditor.cs" Line="7" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
