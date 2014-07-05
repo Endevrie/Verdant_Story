@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_3;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_4;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -52,8 +52,6 @@
      <Compile Include="Assets\Scripts\FileIO\FileData.cs" />
      <Compile Include="Assets\Scripts\FileIO\FileHeader.cs" />
      <Compile Include="Assets\Scripts\FileIO\SaveData.cs" />
-     <Compile Include="Assets\Scripts\GUI\Buffered\UIHandler.cs" />
-     <Compile Include="Assets\Scripts\GUI\Buffered\UIToggle2.cs" />
      <Compile Include="Assets\Scripts\GUI\Button.cs" />
      <Compile Include="Assets\Scripts\GUI\Components\GUIManager.cs" />
      <Compile Include="Assets\Scripts\GUI\Control.cs" />
@@ -76,14 +74,27 @@
      <Compile Include="Assets\Scripts\Scenes\Options_MainMenu.cs" />
      <Compile Include="Assets\Scripts\Scenes\ProfileSelect.cs" />
      <Compile Include="Assets\Scripts\Scenes\SplashScene.cs" />
+     <Compile Include="Assets\Scripts\UI\Toggle\UIText2.cs" />
+     <Compile Include="Assets\Scripts\UI\Toggle\UIText3.cs" />
+     <Compile Include="Assets\Scripts\UI\Toggle\UITexture2.cs" />
+     <Compile Include="Assets\Scripts\UI\Toggle\UITexture3.cs" />
+     <Compile Include="Assets\Scripts\UI\Toggle\UIToggle.cs" />
+     <Compile Include="Assets\Scripts\UI\Toggle\UIToggle2.cs" />
+     <Compile Include="Assets\Scripts\UI\Toggle\UIToggle3.cs" />
+     <Compile Include="Assets\Scripts\UI\UIEvent.cs" />
+     <Compile Include="Assets\Scripts\UI\UIHandler.cs" />
+     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
+     <Compile Include="Assets\Scripts\UI\UIUtilities.cs" />
      <Compile Include="Assets\Scripts\Utilties\CollisionHandler.cs" />
      <Compile Include="Assets\Scripts\Utilties\Game.cs" />
      <Compile Include="Assets\Scripts\Utilties\MaterialSwitch.cs" />
      <Compile Include="Assets\Scripts\Utilties\ObjectSnap.cs" />
+     <Compile Include="Assets\Scripts\Utilties\OnLookerUtils.cs" />
      <Compile Include="Assets\Scripts\Utilties\TriggerHandler.cs" />
      <Compile Include="Assets\Scripts\Utilties\Value.cs" />
      <Compile Include="Assets\Scripts\Utilties\Wait.cs" />
      <None Include="Assets\Shaders\Glow.shader" />
+     <None Include="Assets\Shaders\TextShader.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
