@@ -154,7 +154,7 @@ namespace OnLooker
                 m_Parameters.color = EditorGUILayout.ColorField("Font Color", m_Parameters.color);
                 m_Parameters.scale = EditorGUILayout.FloatField("Scale", m_Parameters.scale);
                 m_Parameters.bounds = EditorGUILayout.RectField("Bounds", m_Parameters.bounds);
-                if (GUILayout.Button("Create"))
+                if (GUILayout.Button("Create") && m_Manager.validateState() == true)
                 {
                     m_Manager.createText2(m_Parameters);
                 }
@@ -167,7 +167,7 @@ namespace OnLooker
                 m_Parameters.scale = EditorGUILayout.FloatField("Scale", m_Parameters.scale);
                 m_Parameters.bounds = EditorGUILayout.RectField("Bounds", m_Parameters.bounds);
                 m_Parameters.texture = UIEditorUtilities.textureField("Texture", m_Parameters.texture);
-                if (GUILayout.Button("Create"))
+                if (GUILayout.Button("Create") && m_Manager.validateState() == true)
                 {
                     m_Manager.createTexture2(m_Parameters);
                 }
@@ -183,7 +183,7 @@ namespace OnLooker
                 m_Parameters.color = EditorGUILayout.ColorField("Font Color", m_Parameters.color);
                 m_Parameters.position = EditorGUILayout.Vector3Field("Position", m_Parameters.position);
                 m_Parameters.rotation = EditorGUILayout.Vector3Field("Rotation", m_Parameters.rotation);
-                if (GUILayout.Button("Create"))
+                if (GUILayout.Button("Create") && m_Manager.validateState() == true)
                 {
                     m_Manager.createText3(m_Parameters);
                 }
@@ -196,7 +196,7 @@ namespace OnLooker
                 m_Parameters.position = EditorGUILayout.Vector3Field("Position", m_Parameters.position);
                 m_Parameters.rotation = EditorGUILayout.Vector3Field("Rotation", m_Parameters.rotation);
                 m_Parameters.texture = UIEditorUtilities.textureField("Texture", m_Parameters.texture);
-                if (GUILayout.Button("Create"))
+                if (GUILayout.Button("Create") && m_Manager.validateState() == true)
                 {
                     m_Manager.createTexture3(m_Parameters);
                 }

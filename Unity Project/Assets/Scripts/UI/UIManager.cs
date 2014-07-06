@@ -95,6 +95,36 @@ namespace OnLooker
                 handleInputEvents();
             }
 
+            public bool validateState()
+            {
+                UIManager.setInstance(this);
+                if (OnLookerUtils.worldPoint == null)
+                {
+                    OnLookerUtils.worldPoint = GameObject.Find("WorldPoint").transform;
+                }
+                if (getCurrentCamera() == null)
+                {
+                    return false;
+                }
+                if (UIManager.currentCamera == null)
+                {
+                    return false;
+                }
+                if (m_PlaneMesh == null)
+                {
+                    return false;
+                }
+                if (m_TextMaterial == null)
+                {
+                    return false;
+                }
+                if (m_TextureMaterial == null)
+                {
+                    return false;
+                }
+                return true;
+            }
+
             bool toggleHitTest(out UIToggle2 aToggle)
             {
                 aToggle = null;
@@ -475,6 +505,8 @@ namespace OnLooker
                 uiTextMesh.font = aArgs.font;
                 //Register the Control
                 registerToggle(uiText);
+
+                uiText.updateTransform(false);
             }
 
             public void createTexture3(UIParameters aArgs)
@@ -511,6 +543,8 @@ namespace OnLooker
 
                 //Register the Control
                 registerToggle(uiTexture);
+
+                uiTexture.updateTransform(false);
             }
 
             //Todo

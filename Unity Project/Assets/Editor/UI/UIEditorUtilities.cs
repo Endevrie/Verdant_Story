@@ -64,7 +64,10 @@ namespace OnLooker
                 aToggle.anchorTarget = (UIAnchorTarget)EditorGUILayout.EnumPopup("Anchor Target", aToggle.anchorTarget);
                 aToggle.target = (Transform)EditorGUILayout.ObjectField("Target", aToggle.target, typeof(Transform), true);
 
-                aToggle.updateTransform(false);
+                if (Application.isPlaying == false)
+                {
+                    aToggle.updateTransform(false);
+                }
             }
 
             public static void text2Inspector(UIText2 aToggle)

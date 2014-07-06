@@ -34,10 +34,30 @@ namespace OnLooker
                 onMouseExit();
             }
 
+            protected override void gameUpdate()
+            {
+                updateTransform(true);
+            }
+
+            protected override void gameLateUpdate()
+            {
+                updateTransform(true);
+            }
+            
+
             public virtual void updateTransform(bool aLerp)
             {
+                if (manager == null)
+                {
+                    return;
+                }
+                Camera currentCam = manager.getCurrentCamera();
+                if (currentCam == null)
+                {
+                    return;
+                }
                 Transform worldPoint = OnLookerUtils.worldPoint;
-                Transform uiCamera = Camera.main.transform;
+                Transform uiCamera = currentCam.transform;
                 if (worldPoint == null)
                 {
                     Debug.LogWarning("World Point is not set");
