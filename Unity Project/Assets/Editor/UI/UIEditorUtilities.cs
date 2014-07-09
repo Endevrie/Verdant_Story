@@ -24,7 +24,7 @@ namespace OnLooker
                 if (aToggle.debug == true)
                 {
                     GUI.enabled = false;
-                    Debug.Log(aToggle.mouseInBounds);
+                    //Debug.Log(aToggle.mouseInBounds);
                     EditorGUILayout.Toggle("Mouse In Bounds", aToggle.mouseInBounds);
                     EditorGUILayout.Toggle("Is Focused", aToggle.isFocused);
                     GUI.enabled = true;
@@ -108,7 +108,13 @@ namespace OnLooker
                     EditorGUILayout.ObjectField("Material", aToggle.material, typeof(Material), true);
                     GUI.enabled = true;  
                 }
-                aToggle.text = EditorGUILayout.TextField("Text", aToggle.text);
+                string text = EditorGUILayout.TextField("Text", aToggle.text);
+                
+                    if(text != aToggle.text)
+                    {
+                        aToggle.textChanged();
+                    }
+                aToggle.text = text;
                 aToggle.font = (Font)EditorGUILayout.ObjectField("Font", aToggle.font, typeof(Font), true);
                 aToggle.fontSize = EditorGUILayout.IntField("Font Size", aToggle.fontSize);
                 aToggle.fontStyle = (FontStyle)EditorGUILayout.EnumPopup("Font Style", aToggle.fontStyle);
@@ -128,22 +134,26 @@ namespace OnLooker
                 aToggle.texture = (Texture)EditorGUILayout.ObjectField("Texture", aToggle.texture, typeof(Texture), true);
             }
 
+            public static UIToggle toggleField(string aContent, UIToggle aToggle)
+            {
+                return (UIToggle)EditorGUILayout.ObjectField(aContent, aToggle, typeof(UIToggle), true);
+            }
 
-            public static Transform transformField(string aContent, Transform aTransform)
+            public static UIText2 text2Field(string aContent, UIText2 aToggle)
             {
-                return (Transform)EditorGUILayout.ObjectField(aContent, aTransform, typeof(Transform), true);
+                return (UIText2)EditorGUILayout.ObjectField(aContent, aToggle, typeof(UIText2), true);
             }
-            public static Font fontField(string aContent, Font aFont)
+            public static UITexture2 text2Field(string aContent, UITexture2 aToggle)
             {
-                return (Font)EditorGUILayout.ObjectField(aContent, aFont, typeof(Font), true);
+                return (UITexture2)EditorGUILayout.ObjectField(aContent, aToggle, typeof(UITexture2), true);
             }
-            public static FontStyle fontStyleEnum(string aContent, FontStyle aStyle)
+            public static UIText3 text2Field(string aContent, UIText3 aToggle)
             {
-                return (FontStyle)EditorGUILayout.EnumPopup(aContent, aStyle);
+                return (UIText3)EditorGUILayout.ObjectField(aContent, aToggle, typeof(UIText3), true);
             }
-            public static Texture textureField(string aContent, Texture aTexture)
+            public static UITexture3 text2Field(string aContent, UITexture3 aToggle)
             {
-                return (Texture)EditorGUILayout.ObjectField(aContent, aTexture, typeof(Texture), true);
+                return (UITexture3)EditorGUILayout.ObjectField(aContent, aToggle, typeof(UITexture3), true);
             }
             
         }

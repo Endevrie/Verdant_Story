@@ -8,68 +8,63 @@ namespace OnLooker
     {
         public class UIHandler : MonoBehaviour
         {
-            private UIToggle m_Toggle;
-            // Use this for initialization
-            void Start()
+            private void Start()
             {
-
-            }
-
-            void OnEnable()
-            {
-                m_Toggle = GetComponent<UIToggle>();
-                if (m_Toggle == null)
+                UIToggle toggle = GetComponent<UIToggle>();
+                if (toggle == null)
                 {
-                    Debug.Log("Attach this to a proper UI Gameobjec");
+                    Debug.Log("Missing Toggle");
                     return;
                 }
-                m_Toggle.registerEvent(onUIEvent);
+                toggle.registerEvent(onUIEvent);
             }
-            void OnDisable()
+            private void OnDestroy()
             {
-                if (m_Toggle != null)
+                UIToggle toggle = GetComponent<UIToggle>();
+                if (toggle == null)
                 {
-                    m_Toggle.unregisterEvent(onUIEvent);
+                    Debug.Log("Missing Toggle");
+                    return;
                 }
+                toggle.unregisterEvent(onUIEvent);
             }
 
-            // Update is called once per frame
-            void Update()
-            {
-
-            }
             protected virtual void onUIEvent(UIToggle aSender, UIEventArgs aArgs)
             {
 
                 switch (aArgs.eventType)
                 {
                     case UIEventType.CLICK:
+                        Debug.Log(aArgs.eventType.ToString());
                         break;
                     case UIEventType.DOUBLE_CLICK:
-
+                        Debug.Log(aArgs.eventType.ToString());
                         break;
                         
                     case UIEventType.DOWN:
+                        Debug.Log(aArgs.eventType.ToString());
                         break;
                     case UIEventType.ENTER:
+                        Debug.Log(aArgs.eventType.ToString());
                         break;
                         
                     case UIEventType.EXIT:
+                        Debug.Log(aArgs.eventType.ToString());
                         break;
                     case UIEventType.RELEASE:
-
+                        Debug.Log(aArgs.eventType.ToString());
                         break;
                     case UIEventType.HOVER:
 
                         break;
                     case UIEventType.FOCUS:
-
+                        Debug.Log(aArgs.eventType.ToString());
                         break;
                     case UIEventType.UNFOCUS:
-
+                        Debug.Log(aArgs.eventType.ToString());
                         break;
                     case UIEventType.KEY_PRESS:
-                        Debug.Log("Key Press");
+                        Debug.Log(aArgs.eventType.ToString());
                         break;
 
                 }

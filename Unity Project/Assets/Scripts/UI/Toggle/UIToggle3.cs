@@ -27,10 +27,12 @@ namespace OnLooker
 
             void OnMouseEnter()
             {
+                m_MouseInBounds = true;
                 onMouseEnter();
             }
             void OnMouseExit()
             {
+                m_MouseInBounds = false;
                 onMouseExit();
             }
 
@@ -119,6 +121,36 @@ namespace OnLooker
                         }
                         break;
                 }
+            }
+
+            public void translate(Vector3 aTranslation)
+            {
+                translate(aTranslation.x, aTranslation.y, aTranslation.z);
+            }
+
+            public void translate(float x, float y, float z)
+            {
+                m_Position.x += x;
+                m_Position.y += y;
+                m_Position.z += z;
+            }
+            public void rotate(Vector3 aRotation)
+            {
+                rotate(aRotation.x, aRotation.y, aRotation.z);
+            }
+            public void rotate(float x, float y, float z)
+            {
+                m_Rotation.x += x;
+                m_Rotation.y += y;
+                m_Rotation.z += z;
+            }
+            public void scale(Vector3 aScale)
+            {
+                scale(aScale.x, aScale.y, aScale.z);
+            }
+            public void scale(float x, float y, float z)
+            {
+                transform.localScale.Set(transform.localScale.x + x, transform.localScale.y + y, transform.localScale.z + z);
             }
 
             public float translationSpeed

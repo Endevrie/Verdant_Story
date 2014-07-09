@@ -29,6 +29,7 @@ namespace OnLooker
                 UIEditorUtilities.toggle3Inspector(inspected);
                 UIEditorUtilities.text3Inspector(inspected);
 
+
                 EditorGUILayout.EndVertical();
             }
         }

@@ -400,7 +400,7 @@ namespace OnLooker
 
             //Creation Methods
 
-            public void createText2(UIParameters aArgs)
+            public UIText2 createText2(UIParameters aArgs)
             {
                 //Create the game object
                 GameObject uiGameObject = new GameObject("Sprite(Text2)");
@@ -423,6 +423,8 @@ namespace OnLooker
                 uiText.setDefault(true);
                 //Set the UIParamaters
 
+
+                uiText.toggleName = aArgs.toggleName;
                 uiText.isInteractive = aArgs.interactive;
                 uiText.text = aArgs.text;
                 uiText.font = aArgs.font;
@@ -433,9 +435,9 @@ namespace OnLooker
                 uiText.setBounds(aArgs.bounds.x, aArgs.bounds.y, aArgs.bounds.width, aArgs.bounds.height);
                 //Register the Control
                 registerToggle(uiText);
+                return uiText;
             }
-
-            public void createTexture2(UIParameters aArgs)
+            public UITexture2 createTexture2(UIParameters aArgs)
             {
                 //Create the Game Object
                 GameObject uiGameObject = new GameObject("Sprite(Texture2)");
@@ -456,6 +458,7 @@ namespace OnLooker
                 uiTexture.setDefault(true);
 
                 //Set the UIParameters
+                uiTexture.toggleName = aArgs.toggleName;
                 uiTexture.isInteractive = aArgs.interactive;
                 uiTexture.texture = aArgs.texture;
                 uiTexture.color = aArgs.color;
@@ -464,9 +467,9 @@ namespace OnLooker
 
                 //Register the Control
                 registerToggle(uiTexture);
+                return uiTexture;
             }
-
-            public void createText3(UIParameters aArgs)
+            public UIText3 createText3(UIParameters aArgs)
             {
                 //Create the Game Object
                 GameObject uiGameObject = new GameObject("Sprite(Text3)");
@@ -493,6 +496,7 @@ namespace OnLooker
                 uiText.setManager(this);
                 uiText.setDefault(true);
                 //set the UIParameters
+                uiText.toggleName = aArgs.toggleName;
                 uiText.isInteractive = aArgs.interactive;
                 uiText.text = aArgs.text;
                 uiText.font = aArgs.font;
@@ -507,9 +511,9 @@ namespace OnLooker
                 registerToggle(uiText);
 
                 uiText.updateTransform(false);
+                return uiText;
             }
-
-            public void createTexture3(UIParameters aArgs)
+            public UITexture3 createTexture3(UIParameters aArgs)
             {
                 //Create the Game Object
                 GameObject uiGameObject = new GameObject("Sprite(Texture3)");
@@ -534,9 +538,9 @@ namespace OnLooker
                 uiTexture.setManager(this);
                 uiTexture.setDefault(true);
                 //set the UIParameters
+                uiTexture.toggleName = aArgs.toggleName;
                 uiTexture.isInteractive = aArgs.interactive;
                 uiTexture.texture = aArgs.texture;
-
                 uiTexture.color = aArgs.color;
                 uiTexture.position = aArgs.position;
                 uiTexture.rotation = aArgs.rotation;
@@ -545,6 +549,83 @@ namespace OnLooker
                 registerToggle(uiTexture);
 
                 uiTexture.updateTransform(false);
+                return uiTexture;
+            }
+
+            public UILabel createLabel2(UIParameters aArgs)
+            {
+                bool defaultInteractive = aArgs.interactive;
+                Texture defaultTexture = aArgs.texture;
+                //Create the GameObject
+                GameObject uiGO = new GameObject("Sprite (Label 2)");
+                Transform uiTransform = uiGO.transform;
+                uiTransform.rotation = Quaternion.identity;
+                uiTransform.position = Vector3.zero;
+                uiTransform.localRotation = Quaternion.identity;
+                uiTransform.localPosition = Vector3.zero;
+                uiTransform.localScale = new Vector3(0.0f, 0.0f, 1.0f);
+                uiTransform.parent = transform;
+                //Create Text2 && Texture2
+                aArgs.interactive = true;
+                UIText2 text2 = createText2(aArgs);
+                aArgs.interactive = false;
+                aArgs.texture = null;
+                UITexture2 texture2 = createTexture2(aArgs);
+                
+                //Create UILabel
+                UILabel label = uiGO.AddComponent<UILabel>();
+                label.uiText = text2;
+                label.uiTexture = texture2;
+                text2.setHandler(label);
+                texture2.setHandler(label);
+                text2.transform.parent = label.transform;
+                texture2.transform.parent = label.transform;
+
+
+
+
+
+                aArgs.interactive = defaultInteractive;
+                aArgs.texture = defaultTexture;
+
+                return null;
+            }
+            public UILabel createLabel3(UIParameters aArgs)
+            {
+                return null;
+            }
+
+
+            public UIToggle getToggle(string aName)
+            {
+                for (int i = 0; i < m_Toggles.Count; i++)
+                {
+                    if (m_Toggles[i].toggleName == aName)
+                    {
+                        return m_Toggles[i];
+                    }
+                }
+                return null;
+            }
+            public UIToggle getToggle(int aIndex)
+            {
+                if (aIndex >= 0 && aIndex < m_Toggles.Count)
+                {
+                    return m_Toggles[aIndex];
+                }
+                return null;
+            }
+            public UIToggle getLastToggle()
+            {
+                if (m_Toggles.Count == 0)
+                {
+                    return null;
+                }
+                return m_Toggles[m_Toggles.Count - 1];
+            }
+            public UIToggle toggleInFocus
+            {
+                get { return m_FocusedToggle; }
             }
 
             //Todo

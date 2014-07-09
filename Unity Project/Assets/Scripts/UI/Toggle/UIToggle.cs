@@ -32,6 +32,8 @@ namespace OnLooker
             private bool m_TrapDoubleClick = false;
             private float m_LastClick = 0.0f;
 
+            private UIHandler m_Handler = null;
+
             private event UIEvent m_UIEvent;
 
             void Start()
@@ -148,7 +150,6 @@ namespace OnLooker
             }
             public virtual void processEvents()
             {
-                //Debug.Log(name +  " Events Processed");
                 //Mouse Down "Click"
                 bool mouseAction = false;
                 if (Input.GetMouseButtonDown((int)MouseButton.LEFT))
@@ -279,16 +280,25 @@ namespace OnLooker
             }
             protected virtual void onMouseRelease(MouseButton aButton)
             {
-                invokeUIEvent(this, new UIEventArgs(UIEventType.RELEASE, aButton));
+                if (m_Interactive == true)
+                {
+                    invokeUIEvent(this, new UIEventArgs(UIEventType.RELEASE, aButton));
+                }
             }
             protected virtual void onMouseHover()
             {
-                invokeUIEvent(this, new UIEventArgs(UIEventType.HOVER, MouseButton.NONE));
+                if (m_Interactive == true)
+                {
+                    invokeUIEvent(this, new UIEventArgs(UIEventType.HOVER, MouseButton.NONE));
+                }
             }
 
             protected virtual void onKeyEvent(KeyCode aKey)
             {
-                invokeUIEvent(this, new UIEventArgs(UIEventType.KEY_PRESS, MouseButton.NONE, aKey));
+                if (m_Interactive == true)
+                {
+                    invokeUIEvent(this, new UIEventArgs(UIEventType.KEY_PRESS, MouseButton.NONE, aKey));
+                }
             }
 
 
@@ -318,6 +328,10 @@ namespace OnLooker
                 {
                     m_Manager = aManager;
                 }
+            }
+            public void setHandler(UIHandler aHandler)
+            {
+                m_Handler = aHandler;
             }
 
 
@@ -359,6 +373,11 @@ namespace OnLooker
             {
                 get { return m_LastClick; }
                 set { m_LastClick = value; }
+            }
+            public UIHandler handler
+            {
+                get { return m_Handler; }
+                set { m_Handler = value; }
             }
             
         }

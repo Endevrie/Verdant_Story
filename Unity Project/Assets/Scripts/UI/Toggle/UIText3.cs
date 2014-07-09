@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEditor;
 using System;
 using System.Collections;
 
@@ -6,7 +7,6 @@ namespace OnLooker
 {
     namespace UI
     {
-
 
         public class UIText3 : UIToggle3
         {
@@ -20,6 +20,9 @@ namespace OnLooker
             [SerializeField]
             [HideInInspector]
             private Material[] m_Materials = null;
+
+
+            bool m_TextChanged = false;
             // Use this for initialization
             void Start()
             {
@@ -28,7 +31,25 @@ namespace OnLooker
                     initialize();
                 }
             }
+            protected override void gameFixedUpdate()
+            {
+                if (m_TextChanged == true)
+                {
+                    textChanged();
+                }
+            }
 
+            //Not the best solution but it'll work for now..
+            public void textChanged()
+            {
+                if (isInteractive == true && m_TextChanged == true)
+                {
+                    BoxCollider box = GetComponent<BoxCollider>();
+                    DestroyImmediate(box);
+                    box = gameObject.AddComponent<BoxCollider>();
+                    box.isTrigger = true;
+                }
+            }
 
             public void setDefault(bool aForce)
             {
@@ -70,7 +91,14 @@ namespace OnLooker
             public string text
             {
                 get { return m_TextMesh.text; }
-                set { m_TextMesh.text = value; }
+                set
+                {
+                    if (value != m_TextMesh.text)
+                    {
+                        m_TextChanged = true;
+                    }
+                    m_TextMesh.text = value;
+                }
             }
             public Font font
             {

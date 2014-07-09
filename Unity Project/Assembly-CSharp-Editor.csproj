@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Editor\GUI\ObjectSnapEditor.cs" />
+     <Compile Include="Assets\Editor\OLEditorUtilities.cs" />
      <Compile Include="Assets\Editor\PlayerControlEditor.cs" />
+     <Compile Include="Assets\Editor\UI\Control\UILabelEditor.cs" />
      <Compile Include="Assets\Editor\UI\UIEditorUtilities.cs" />
      <Compile Include="Assets\Editor\UI\UIText2Editor.cs" />
      <Compile Include="Assets\Editor\UI\UIText3Editor.cs" />

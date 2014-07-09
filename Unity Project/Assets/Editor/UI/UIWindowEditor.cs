@@ -70,7 +70,7 @@ namespace OnLooker
             {
                 EditorGUILayout.BeginVertical();
                 GUI.enabled = false;
-                m_Root = UIEditorUtilities.transformField("Root", m_Root);
+                m_Root = OLEditorUtilities.transformField("Root", m_Root);
                 m_Manager = (UIManager)EditorGUILayout.ObjectField("Manager", m_Manager, typeof(UIManager), true);
                 GUI.enabled = true;
 
@@ -148,9 +148,9 @@ namespace OnLooker
                 m_Parameters.toggleName = EditorGUILayout.TextField("Toggle Name", m_Parameters.toggleName);
                 m_Parameters.interactive = EditorGUILayout.Toggle("Interactive", m_Parameters.interactive);
                 m_Parameters.text = EditorGUILayout.TextField("Text", m_Parameters.text);
-                m_Parameters.font = UIEditorUtilities.fontField("Font", m_Parameters.font);
+                m_Parameters.font = OLEditorUtilities.fontField("Font", m_Parameters.font);
                 m_Parameters.fontSize = EditorGUILayout.IntField("Font Size", m_Parameters.fontSize);
-                m_Parameters.fontStyle = UIEditorUtilities.fontStyleEnum("Font Style", m_Parameters.fontStyle);
+                m_Parameters.fontStyle = OLEditorUtilities.fontStyleEnum("Font Style", m_Parameters.fontStyle);
                 m_Parameters.color = EditorGUILayout.ColorField("Font Color", m_Parameters.color);
                 m_Parameters.scale = EditorGUILayout.FloatField("Scale", m_Parameters.scale);
                 m_Parameters.bounds = EditorGUILayout.RectField("Bounds", m_Parameters.bounds);
@@ -166,7 +166,7 @@ namespace OnLooker
                 m_Parameters.color = EditorGUILayout.ColorField("Font Color", m_Parameters.color);
                 m_Parameters.scale = EditorGUILayout.FloatField("Scale", m_Parameters.scale);
                 m_Parameters.bounds = EditorGUILayout.RectField("Bounds", m_Parameters.bounds);
-                m_Parameters.texture = UIEditorUtilities.textureField("Texture", m_Parameters.texture);
+                m_Parameters.texture = OLEditorUtilities.textureField("Texture", m_Parameters.texture);
                 if (GUILayout.Button("Create") && m_Manager.validateState() == true)
                 {
                     m_Manager.createTexture2(m_Parameters);
@@ -177,9 +177,9 @@ namespace OnLooker
                 m_Parameters.toggleName = EditorGUILayout.TextField("Toggle Name", m_Parameters.toggleName);
                 m_Parameters.interactive = EditorGUILayout.Toggle("Interactive", m_Parameters.interactive);
                 m_Parameters.text = EditorGUILayout.TextField("Text", m_Parameters.text);
-                m_Parameters.font = UIEditorUtilities.fontField("Font", m_Parameters.font);
+                m_Parameters.font = OLEditorUtilities.fontField("Font", m_Parameters.font);
                 m_Parameters.fontSize = EditorGUILayout.IntField("Font Size", m_Parameters.fontSize);
-                m_Parameters.fontStyle = UIEditorUtilities.fontStyleEnum("Font Style", m_Parameters.fontStyle);
+                m_Parameters.fontStyle = OLEditorUtilities.fontStyleEnum("Font Style", m_Parameters.fontStyle);
                 m_Parameters.color = EditorGUILayout.ColorField("Font Color", m_Parameters.color);
                 m_Parameters.position = EditorGUILayout.Vector3Field("Position", m_Parameters.position);
                 m_Parameters.rotation = EditorGUILayout.Vector3Field("Rotation", m_Parameters.rotation);
@@ -195,7 +195,7 @@ namespace OnLooker
                 m_Parameters.color = EditorGUILayout.ColorField("Font Color", m_Parameters.color);
                 m_Parameters.position = EditorGUILayout.Vector3Field("Position", m_Parameters.position);
                 m_Parameters.rotation = EditorGUILayout.Vector3Field("Rotation", m_Parameters.rotation);
-                m_Parameters.texture = UIEditorUtilities.textureField("Texture", m_Parameters.texture);
+                m_Parameters.texture = OLEditorUtilities.textureField("Texture", m_Parameters.texture);
                 if (GUILayout.Button("Create") && m_Manager.validateState() == true)
                 {
                     m_Manager.createTexture3(m_Parameters);

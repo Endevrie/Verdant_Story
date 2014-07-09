@@ -74,6 +74,7 @@
      <Compile Include="Assets\Scripts\Scenes\Options_MainMenu.cs" />
      <Compile Include="Assets\Scripts\Scenes\ProfileSelect.cs" />
      <Compile Include="Assets\Scripts\Scenes\SplashScene.cs" />
+     <Compile Include="Assets\Scripts\UI\Controls\UILabel.cs" />
      <Compile Include="Assets\Scripts\UI\Toggle\UIText2.cs" />
      <Compile Include="Assets\Scripts\UI\Toggle\UIText3.cs" />
      <Compile Include="Assets\Scripts\UI\Toggle\UITexture2.cs" />
